@@ -1,9 +1,16 @@
-# SSM Multi Services — Réservation aérienne
+# SSM Multi Services — recherche de vols
 
-La page `public/booking.html` propose aller simple/aller-retour, dates de voyage, nombre d’adultes (13 ans et plus), nombre d’enfants et âge de chaque enfant (0–12 ans). En aller-retour, le calendrier de retour est affiché et requis. La recherche transmet `returnDate` et `children` à l’API Amadeus; la limite de la maquette est de 9 voyageurs au total.
+La page `public/booking.html` propose l’autocomplétion des villes/aéroports avec nom et code IATA via Amadeus, et un filtre pour Air Congo (4V), Brussels Airlines (SN), Air France (AF), Ethiopian Airlines (ET) et Kenya Airways (KQ). Les codes exacts sont transmis au fournisseur pour filtrer les offres disponibles.
 
-Le logo de l’en-tête est agrandi et effectue une rotation de 360° toutes les 5,5 secondes. L’animation est désactivée si le système demande une réduction des animations.
+## Limitation test / temps réel
 
-Visa, Airtel Money, M-Pesa et Orange Money sont visibles comme choix de démonstration seulement. Aucun paiement, billet ou commission réelle n’est traité. Les résultats de secours sont fictifs.
+Le mode test Amadeus sert au développement et ne garantit pas de tarifs ni de disponibilité en temps réel : les jeux de données et compagnies/routes retournés sont limités ou mis en cache. Aucune connexion directe aux sites grand public des compagnies n’est incluse. Pour les tarifs réellement à jour, il faut obtenir l’accès production Amadeus ou un accès API/accord commercial direct de chaque compagnie ou agrégateur. Même avec l’accès production, la couverture dépend des flux et accords du fournisseur.
 
-Lancer en local : `npm install`, puis `npm run dev`, ouvrir `http://localhost:5173/booking.html`. La recherche Amadeus demande un fichier `.env` avec les secrets côté serveur et `npm run server` dans un autre terminal.
+## Lancer localement
+
+1. Installer Node.js 18+ et lancer `npm install`.
+2. Copier `.env.example` vers `.env`, puis ajouter les identifiants Amadeus. Ne jamais publier les secrets.
+3. Lancer l’API avec `npm run server` et l’interface avec `npm run dev` dans deux terminaux.
+4. Ouvrir `http://localhost:5173/booking.html`.
+
+Les API du serveur sont `GET /api/locations?keyword=Paris`, `GET /api/flights/status` et `GET /api/flights/search`. En mode test, les résultats obtenus restent des données de test; la page ne remplace pas un prix manquant par un tarif fictif présenté comme réel. La réservation, émission de billet, paiement et commission de production ne sont pas activés.
