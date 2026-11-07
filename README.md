@@ -1,7 +1,5 @@
-# SSM Multi Services — devises de recherche
+# SSM Multi Services — voyageurs
 
-Le formulaire de recherche permet d’afficher les prix en EUR, USD, XOF, CDF (franc congolais) et GBP. La devise choisie est transmise au fournisseur de vols et le prix est formaté dans la devise renvoyée par celui-ci.
+Dans les formulaires de réservation et de recherche avancée, le nombre de voyageurs est séparé en deux catégories : adultes (13 ans et plus) et enfants (0 à 12 ans). Le nombre d’enfants affiche un sélecteur d’âge pour chacun. Le total est limité à 9 voyageurs et le nombre d’enfants est envoyé à la recherche Amadeus.
 
-La prise en charge effective de CDF dépend de l’API de vols et du compte fournisseur. Le choix CDF ne constitue pas une conversion garantie : si le fournisseur ne prend pas cette devise en charge, il peut refuser la recherche. Aucun taux de change n’est inventé côté navigateur.
-
-Le mode test Amadeus utilise des données limitées/cachées et ne garantit pas de tarifs en temps réel. Pour des prix réels, un accès production fournisseur est nécessaire. Les fonctions de réservation, paiement et commission restent désactivées.
+Lancer en local : `npm install`, `npm run server` et `npm run dev`. Les identifiants Amadeus doivent être configurés dans `.env` côté serveur. Les résultats en mode test ne sont pas des tarifs de production.

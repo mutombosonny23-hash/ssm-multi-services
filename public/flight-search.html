@@ -6,28 +6,19 @@
     <meta name="theme-color" content="#ef436a" />
     <title>Recherche de vols | SSM Multi Services</title>
     <link rel="stylesheet" href="/flight-search.css" />
+    <style>.traveller-group{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px;border:1px solid #e8e8ed;border-radius:8px;padding:12px;margin:0}.traveller-group legend{font-size:10px;font-weight:700;color:#555;padding:0 6px}.traveller-group label{font-size:9px;font-weight:600;color:#777}.traveller-group select{display:block;width:100%;height:38px;margin-top:6px;border:1px solid #e8e8ed;border-radius:7px;padding:0 9px;background:#fff}.traveller-group small{display:block;font-size:8px;color:#999;margin-top:3px}.child-age-fields{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap}.child-age-fields[hidden]{display:none}.child-age-fields label{min-width:120px}.child-age-fields select{display:block;width:100%;height:35px;margin-top:5px;border:1px solid #e8e8ed;border-radius:7px;padding:0 8px;background:#fff}</style>
   </head>
   <body>
     <header class="topbar"><a class="brand" href="/"><span class="brand-mark">SSM</span><span><b>SSM Multi Services</b><small>VOTRE VOYAGE COMMENCE ICI</small></span></a><a class="admin-link" href="/">Tableau de bord admin ↗</a></header>
-    <main class="page">
-      <section class="hero"><p class="eyebrow">RÉSERVATION DE VOLS</p><h1>Le monde à portée de billet.</h1><p>Comparez les offres de vols disponibles auprès de notre partenaire de réservation.</p></section>
-      <form id="search-form" class="search-card">
-        <div class="trip-options"><span class="trip-chip">✈ Aller simple ou aller-retour</span><span id="provider-badge" class="provider-badge">Connexion au fournisseur…</span></div>
-        <div class="fields">
-          <label>Départ (code IATA)<input name="origin" placeholder="CDG" minlength="3" maxlength="3" value="CDG" required autocomplete="off" /></label>
-          <label>Destination (code IATA)<input name="destination" placeholder="DSS" minlength="3" maxlength="3" value="DSS" required autocomplete="off" /></label>
-          <label>Départ<input name="departureDate" type="date" required /></label>
-          <label>Retour <span class="optional">(facultatif)</span><input name="returnDate" type="date" /></label>
-          <label>Adultes<select name="adults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></label>
-          <label>Devise<select name="currencyCode"><option value="EUR">EUR — Euro</option><option value="USD">USD — Dollar US</option><option value="XOF">XOF — Franc CFA</option><option value="CDF">CDF — Franc congolais</option><option value="GBP">GBP — Livre sterling</option></select></label>
-        </div>
-        <label class="checkbox"><input name="nonStop" type="checkbox" /> Vols directs uniquement</label>
+    <main class="page"><section class="hero"><p class="eyebrow">RÉSERVATION DE VOLS</p><h1>Le monde à portée de billet.</h1><p>Comparez les offres de vols disponibles auprès de notre partenaire de réservation.</p></section>
+      <form id="search-form" class="search-card"><div class="trip-options"><span class="trip-chip">✈ Aller simple ou aller-retour</span><span id="provider-badge" class="provider-badge">Connexion au fournisseur…</span></div>
+        <div class="fields"><label>Départ (code IATA)<input name="origin" placeholder="CDG" minlength="3" maxlength="3" value="CDG" required autocomplete="off" /></label><label>Destination (code IATA)<input name="destination" placeholder="DSS" minlength="3" maxlength="3" value="DSS" required autocomplete="off" /></label><label>Départ<input name="departureDate" type="date" required /></label><label>Retour <span class="optional">(facultatif)</span><input name="returnDate" type="date" /></label>
+          <fieldset class="traveller-group"><legend>Voyageurs</legend><label>Adultes <small>13 ans et plus</small><select name="adults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></label><label>Enfants <small>De 0 à 12 ans</small><select name="children"><option value="0">0 enfant</option><option value="1">1 enfant</option><option value="2">2 enfants</option><option value="3">3 enfants</option><option value="4">4 enfants</option><option value="5">5 enfants</option><option value="6">6 enfants</option><option value="7">7 enfants</option><option value="8">8 enfants</option></select></label></fieldset><div id="child-ages" class="child-age-fields" hidden></div>
+          <label>Devise<select name="currencyCode"><option value="EUR">EUR — Euro</option><option value="USD">USD — Dollar US</option><option value="XOF">XOF — Franc CFA</option><option value="CDF">CDF — Franc congolais</option><option value="GBP">GBP — Livre sterling</option></select></label><label class="checkbox"><input name="nonStop" type="checkbox" /> Vols directs uniquement</label></div>
         <button class="search-button" type="submit">⌕ <span>Rechercher des vols</span></button>
-      </form>
-      <section class="results-section"><div class="results-heading"><div><p class="eyebrow">OFFRES DISPONIBLES</p><h2 id="results-title">Trouvez votre prochain vol</h2></div><span id="result-count"></span></div><div id="message" class="message" hidden></div><div id="results" class="results"></div></section>
-      <p class="disclaimer">Les prix et disponibilités sont fournis par Amadeus et peuvent changer jusqu’à la confirmation. La devise affichée dépend des devises prises en charge par le fournisseur. La réservation, le paiement et la commission nécessitent une intégration commerciale supplémentaire.</p>
+      </form><section class="results-section"><div class="results-heading"><div><p class="eyebrow">OFFRES DISPONIBLES</p><h2 id="results-title">Trouvez votre prochain vol</h2></div><span id="result-count"></span></div><div id="message" class="message" hidden></div><div id="results" class="results"></div></section>
+      <p class="disclaimer">Le choix adultes/enfants est séparé; les enfants ont entre 0 et 12 ans. Les prix et disponibilités dépendent du fournisseur et de son mode test/production. La réservation et le paiement ne sont pas actifs.</p>
     </main>
-    <script src="/currency-picker.js"></script>
-    <script type="module" src="/flight-search.js"></script>
+    <script src="/currency-picker.js"></script><script type="module" src="/flight-search.js"></script>
   </body>
 </html>
