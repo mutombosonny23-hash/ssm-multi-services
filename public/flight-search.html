@@ -19,14 +19,15 @@
           <label>Départ<input name="departureDate" type="date" required /></label>
           <label>Retour <span class="optional">(facultatif)</span><input name="returnDate" type="date" /></label>
           <label>Adultes<select name="adults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></label>
-          <label>Devise<select name="currencyCode"><option value="EUR">EUR — Euro</option><option value="USD">USD — Dollar US</option><option value="XOF">XOF — Franc CFA</option><option value="GBP">GBP — Livre sterling</option></select></label>
+          <label>Devise<select name="currencyCode"><option value="EUR">EUR — Euro</option><option value="USD">USD — Dollar US</option><option value="XOF">XOF — Franc CFA</option><option value="CDF">CDF — Franc congolais</option><option value="GBP">GBP — Livre sterling</option></select></label>
         </div>
         <label class="checkbox"><input name="nonStop" type="checkbox" /> Vols directs uniquement</label>
         <button class="search-button" type="submit">⌕ <span>Rechercher des vols</span></button>
       </form>
       <section class="results-section"><div class="results-heading"><div><p class="eyebrow">OFFRES DISPONIBLES</p><h2 id="results-title">Trouvez votre prochain vol</h2></div><span id="result-count"></span></div><div id="message" class="message" hidden></div><div id="results" class="results"></div></section>
-      <p class="disclaimer">Les prix et disponibilités sont fournis par Amadeus et peuvent changer jusqu’à la confirmation. Cette version permet la recherche uniquement : la réservation, le paiement et la commission nécessitent une intégration commerciale supplémentaire.</p>
+      <p class="disclaimer">Les prix et disponibilités sont fournis par Amadeus et peuvent changer jusqu’à la confirmation. La devise affichée dépend des devises prises en charge par le fournisseur. La réservation, le paiement et la commission nécessitent une intégration commerciale supplémentaire.</p>
     </main>
+    <script src="/currency-picker.js"></script>
     <script type="module" src="/flight-search.js"></script>
   </body>
 </html>

@@ -6,15 +6,10 @@
   <meta name="theme-color" content="#ef436a" />
   <title>Réserver un vol | SSM Multi Services</title>
   <link rel="stylesheet" href="./booking.css" />
-  <style>
-    .location-help{font-size:8px;color:#92919b;margin-top:4px}.airline-filter{border:0;padding:0;margin:13px 0 0}.airline-filter legend{font-size:9px;font-weight:700;color:#777681;margin-bottom:8px}.airline-options{display:flex;flex-wrap:wrap;gap:8px}.airline-option{display:flex;align-items:center;gap:6px;border:1px solid #ececf1;border-radius:20px;padding:7px 10px;font-size:9px;color:#595864;cursor:pointer}.airline-option input{accent-color:#ed4167}.provider-warning{font-size:9px;color:#8f6c1a;background:#fff9e9;border:1px solid #f5e8c1;border-radius:7px;padding:9px 11px;margin:10px 0 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-  </style>
+  <style>.currency-field{min-width:145px}.currency-field select{display:block;width:100%;height:38px;margin-top:6px;border:1px solid #e8e8ed;border-radius:7px;padding:0 10px;background:#fff;color:#393844;font:500 11px 'DM Sans',sans-serif}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="./booking.html"><span class="brand-mark" aria-label="Logo SSM">SSM</span><span><b>SSM Multi Services</b><small>VOTRE VOYAGE COMMENCE ICI</small></span></a>
-    <a class="admin-link" href="./flight-search.html">Recherche avancée ↗</a>
-  </header>
+  <header class="topbar"><a class="brand" href="./booking.html"><span class="brand-mark" aria-label="Logo SSM">SSM</span><span><b>SSM Multi Services</b><small>VOTRE VOYAGE COMMENCE ICI</small></span></a><a class="admin-link" href="./flight-search.html">Recherche avancée ↗</a></header>
   <main class="page">
     <section class="hero"><div class="eyebrow">VOTRE VOYAGE, EN TOUTE SIMPLICITÉ</div><h1>Réservez votre prochain vol</h1><p>Comparez les offres et préparez votre réservation avec SSM Multi Services.</p></section>
     <section class="search-card">
@@ -30,16 +25,10 @@
           <button class="primary" type="submit">⌕ Rechercher</button>
         </div>
         <div id="child-ages" class="child-ages" hidden></div>
-        <fieldset class="airline-filter"><legend>Compagnies à rechercher</legend><div class="airline-options">
-          <label class="airline-option"><input type="checkbox" name="airline" value="4V" checked /> Air Congo</label>
-          <label class="airline-option"><input type="checkbox" name="airline" value="SN" checked /> Brussels Airlines</label>
-          <label class="airline-option"><input type="checkbox" name="airline" value="AF" checked /> Air France</label>
-          <label class="airline-option"><input type="checkbox" name="airline" value="ET" checked /> Ethiopian Airlines</label>
-          <label class="airline-option"><input type="checkbox" name="airline" value="KQ" checked /> Kenya Airways</label>
-        </div></fieldset>
+        <fieldset class="airline-filter"><legend>Compagnies à rechercher</legend><div class="airline-options"><label class="airline-option"><input type="checkbox" name="airline" value="4V" checked /> Air Congo</label><label class="airline-option"><input type="checkbox" name="airline" value="SN" checked /> Brussels Airlines</label><label class="airline-option"><input type="checkbox" name="airline" value="AF" checked /> Air France</label><label class="airline-option"><input type="checkbox" name="airline" value="ET" checked /> Ethiopian Airlines</label><label class="airline-option"><input type="checkbox" name="airline" value="KQ" checked /> Kenya Airways</label></div></fieldset>
       </form>
       <div class="demo-note"><span class="status-dot"></span><span id="provider-status">Connexion fournisseur non vérifiée</span></div>
-      <p class="provider-warning">En mode test, les prix et les disponibilités sont généralement limités ou mis en cache : ils ne sont pas garantis en temps réel. Les offres dépendent de la couverture Amadeus et de l’accès de votre compte.</p>
+      <p class="provider-warning">En mode test, les prix et les disponibilités sont limités ou mis en cache et ne sont pas garantis en temps réel. La devise dépend des devises prises en charge par le fournisseur.</p>
     </section>
     <div class="steps"><div class="step active"><span>1</span> Choisir un vol</div><i></i><div class="step" id="step-passenger"><span>2</span> Voyageur</div><i></i><div class="step" id="step-payment"><span>3</span> Confirmation</div></div>
     <div id="notice" class="notice" role="status" hidden></div>
@@ -51,18 +40,14 @@
       <div class="section-title"><div><div class="eyebrow">DERNIÈRE ÉTAPE</div><h2>Informations du voyageur</h2></div><span class="secure-label">Démo · aucun paiement réel</span></div>
       <form id="checkout-form">
         <div class="passenger-fields"><label>Prénom<input name="firstName" autocomplete="given-name" placeholder="Ex. Aïcha" required /></label><label>Nom<input name="lastName" autocomplete="family-name" placeholder="Ex. Diallo" required /></label><label>Adresse e-mail<input name="email" type="email" autocomplete="email" placeholder="vous@exemple.com" required /></label><label>Téléphone<input name="phone" type="tel" autocomplete="tel" placeholder="+33 6 00 00 00 00" required /></label></div>
-        <fieldset class="payment-methods"><legend>Choisissez un mode de paiement</legend><p class="payment-help">Les paiements réels ne sont pas activés. Ne saisissez aucun numéro de carte ni code secret ici.</p>
-          <label class="payment-option"><input type="radio" name="payment" value="visa" required /><span class="pay-logo visa">VISA</span><span class="pay-copy"><b>Carte Visa</b><small>Paiement par carte via un prestataire agréé</small></span><span class="radio-mark"></span></label>
-          <label class="payment-option"><input type="radio" name="payment" value="airtel-money" /><span class="pay-logo airtel">A</span><span class="pay-copy"><b>Airtel Money</b><small>Paiement mobile — intégration opérateur à connecter</small></span><span class="radio-mark"></span></label>
-          <label class="payment-option"><input type="radio" name="payment" value="m-pesa" /><span class="pay-logo mpesa">M</span><span class="pay-copy"><b>M-Pesa</b><small>Paiement mobile — disponibilité selon le pays</small></span><span class="radio-mark"></span></label>
-          <label class="payment-option"><input type="radio" name="payment" value="orange-money" /><span class="pay-logo orange">O</span><span class="pay-copy"><b>Orange Money</b><small>Paiement mobile — intégration opérateur à connecter</small></span><span class="radio-mark"></span></label>
-        </fieldset>
+        <fieldset class="payment-methods"><legend>Choisissez un mode de paiement</legend><p class="payment-help">Les paiements réels ne sont pas activés. Ne saisissez aucun numéro de carte ni code secret ici.</p><label class="payment-option"><input type="radio" name="payment" value="visa" required /><span class="pay-logo visa">VISA</span><span class="pay-copy"><b>Carte Visa</b><small>Paiement par carte via un prestataire agréé</small></span><span class="radio-mark"></span></label><label class="payment-option"><input type="radio" name="payment" value="airtel-money" /><span class="pay-logo airtel">A</span><span class="pay-copy"><b>Airtel Money</b><small>Paiement mobile — intégration opérateur à connecter</small></span><span class="radio-mark"></span></label><label class="payment-option"><input type="radio" name="payment" value="m-pesa" /><span class="pay-logo mpesa">M</span><span class="pay-copy"><b>M-Pesa</b><small>Paiement mobile — disponibilité selon le pays</small></span><span class="radio-mark"></span></label><label class="payment-option"><input type="radio" name="payment" value="orange-money" /><span class="pay-logo orange">O</span><span class="pay-copy"><b>Orange Money</b><small>Paiement mobile — intégration opérateur à connecter</small></span><span class="radio-mark"></span></label></fieldset>
         <button class="primary confirm-button" type="submit">Continuer vers la confirmation <span>→</span></button>
       </form>
       <div id="confirmation" class="confirmation" hidden><span class="check">✓</span><div><h3>Mode de paiement sélectionné : <span id="selected-payment-name"></span></h3><p>Cette maquette ne traite pas de paiement et ne réserve pas de billet. L’intégration du prestataire de paiement reste nécessaire.</p></div></div>
     </section>
     <footer>© 2026 SSM Multi Services <span>•</span> Maquette de démonstration — les prix et réservations ne sont pas garantis.</footer>
   </main>
+  <script src="./currency-picker.js"></script>
   <script type="module" src="./booking.js"></script>
 </body>
 </html>
