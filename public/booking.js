@@ -16,10 +16,10 @@ const sampleFlights = [
 ];
 let selectedFlight = null;
 let passengerCount = 1;
-
+const paymentNames = { visa: 'Carte Visa', 'airtel-money': 'Airtel Money', 'm-pesa': 'M-Pesa', 'orange-money': 'Orange Money' };
 const formatMoney = (value, currency) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency, maximumFractionDigits: 2 }).format(value);
 function showNotice(text, error = false) { notice.hidden = false; notice.textContent = text; notice.className = `notice${error ? ' error' : ''}`; }
-function makeFlightCard(flight, index) {
+function makeFlightCard(flight) {
   const card = document.createElement('article');
   card.className = `flight-card${selectedFlight?.id === flight.id ? ' chosen' : ''}`;
   const carrier = document.createElement('div'); carrier.className = 'carrier';
@@ -102,6 +102,9 @@ form.addEventListener('submit', async (event) => {
 checkoutForm.addEventListener('submit', (event) => {
   event.preventDefault();
   if (!checkoutForm.reportValidity() || !selectedFlight) return;
+  const payment = new FormData(checkoutForm).get('payment');
+  if (!payment || !paymentNames[payment]) return;
+  document.querySelector('#selected-payment-name').textContent = paymentNames[payment];
   document.querySelector('#confirmation').hidden = false;
   document.querySelector('#step-payment').classList.add('active');
   checkoutForm.querySelector('.confirm-button').hidden = true;
