@@ -9,18 +9,27 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="./booking.html"><span class="brand-mark">SSM</span><span><b>SSM Multi Services</b><small>VOTRE VOYAGE COMMENCE ICI</small></span></a>
+    <a class="brand" href="./booking.html"><span class="brand-mark" aria-label="Logo SSM">SSM</span><span><b>SSM Multi Services</b><small>VOTRE VOYAGE COMMENCE ICI</small></span></a>
     <a class="admin-link" href="./flight-search.html">Recherche avancée ↗</a>
   </header>
   <main class="page">
     <section class="hero"><div class="eyebrow">VOTRE VOYAGE, EN TOUTE SIMPLICITÉ</div><h1>Réservez votre prochain vol</h1><p>Comparez les offres et préparez votre réservation avec SSM Multi Services.</p></section>
     <section class="search-card">
-      <form id="search-form" class="search-grid">
-        <label>Départ <input name="origin" value="CDG" maxlength="3" required aria-label="Code IATA de départ" /></label>
-        <label>Destination <input name="destination" value="DSS" maxlength="3" required aria-label="Code IATA de destination" /></label>
-        <label>Date de départ <input name="departureDate" type="date" required /></label>
-        <label>Voyageurs <select name="adults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
-        <button class="primary" type="submit">⌕ Rechercher</button>
+      <form id="search-form">
+        <fieldset class="trip-type"><legend>Type de voyage</legend>
+          <label><input type="radio" name="tripType" value="roundtrip" checked /><span>⇄ Aller-retour</span></label>
+          <label><input type="radio" name="tripType" value="oneway" /><span>→ Aller simple</span></label>
+        </fieldset>
+        <div class="search-grid">
+          <label>Départ <input name="origin" value="CDG" maxlength="3" required aria-label="Code IATA de départ" /></label>
+          <label>Destination <input name="destination" value="DSS" maxlength="3" required aria-label="Code IATA de destination" /></label>
+          <label>Date de départ <input name="departureDate" type="date" required /></label>
+          <label id="return-date-field">Date de retour<input name="returnDate" type="date" required /></label>
+          <label>Adultes (13 ans et +)<select name="adults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></label>
+          <label>Enfants (0 à 12 ans)<select name="children"><option value="0">0 enfant</option><option value="1">1 enfant</option><option value="2">2 enfants</option><option value="3">3 enfants</option><option value="4">4 enfants</option><option value="5">5 enfants</option><option value="6">6 enfants</option><option value="7">7 enfants</option><option value="8">8 enfants</option></select></label>
+          <button class="primary" type="submit">⌕ Rechercher</button>
+        </div>
+        <div id="child-ages" class="child-ages" hidden></div>
       </form>
       <div class="demo-note"><span class="status-dot"></span><span id="provider-status">Exemple visuel — résultats de démonstration</span></div>
     </section>
@@ -34,7 +43,7 @@
       <div class="section-title"><div><div class="eyebrow">DERNIÈRE ÉTAPE</div><h2>Informations du voyageur</h2></div><span class="secure-label">Démo · aucun paiement réel</span></div>
       <form id="checkout-form">
         <div class="passenger-fields"><label>Prénom<input name="firstName" autocomplete="given-name" placeholder="Ex. Aïcha" required /></label><label>Nom<input name="lastName" autocomplete="family-name" placeholder="Ex. Diallo" required /></label><label>Adresse e-mail<input name="email" type="email" autocomplete="email" placeholder="vous@exemple.com" required /></label><label>Téléphone<input name="phone" type="tel" autocomplete="tel" placeholder="+33 6 00 00 00 00" required /></label></div>
-        <fieldset class="payment-methods"><legend>Choisissez un mode de paiement</legend><p class="payment-help">Les paiements réels ne sont pas encore activés. Aucun numéro de carte ou code secret ne doit être saisi ici.</p>
+        <fieldset class="payment-methods"><legend>Choisissez un mode de paiement</legend><p class="payment-help">Les paiements réels ne sont pas activés. Ne saisissez aucun numéro de carte ni code secret ici.</p>
           <label class="payment-option"><input type="radio" name="payment" value="visa" required /><span class="pay-logo visa">VISA</span><span class="pay-copy"><b>Carte Visa</b><small>Paiement par carte via un prestataire agréé</small></span><span class="radio-mark"></span></label>
           <label class="payment-option"><input type="radio" name="payment" value="airtel-money" /><span class="pay-logo airtel">A</span><span class="pay-copy"><b>Airtel Money</b><small>Paiement mobile — intégration opérateur à connecter</small></span><span class="radio-mark"></span></label>
           <label class="payment-option"><input type="radio" name="payment" value="m-pesa" /><span class="pay-logo mpesa">M</span><span class="pay-copy"><b>M-Pesa</b><small>Paiement mobile — disponibilité selon le pays</small></span><span class="radio-mark"></span></label>
@@ -42,7 +51,7 @@
         </fieldset>
         <button class="primary confirm-button" type="submit">Continuer vers la confirmation <span>→</span></button>
       </form>
-      <div id="confirmation" class="confirmation" hidden><span class="check">✓</span><div><h3>Mode de paiement sélectionné : <span id="selected-payment-name"></span></h3><p>Cette maquette ne traite pas de paiement et ne réserve pas de billet. Pour encaisser, il faudra intégrer le prestataire correspondant et son parcours de paiement sécurisé.</p></div></div>
+      <div id="confirmation" class="confirmation" hidden><span class="check">✓</span><div><h3>Mode de paiement sélectionné : <span id="selected-payment-name"></span></h3><p>Cette maquette ne traite pas de paiement et ne réserve pas de billet. L’intégration du prestataire de paiement reste nécessaire.</p></div></div>
     </section>
     <footer>© 2026 SSM Multi Services <span>•</span> Maquette de démonstration — les prix et réservations ne sont pas garantis.</footer>
   </main>
