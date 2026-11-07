@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ef436a" />
+    <title>Recherche de vols | SSM Multi Services</title>
+    <link rel="stylesheet" href="/flight-search.css" />
+  </head>
+  <body>
+    <header class="topbar"><a class="brand" href="/"><span class="brand-mark">SSM</span><span><b>SSM Multi Services</b><small>VOTRE VOYAGE COMMENCE ICI</small></span></a><a class="admin-link" href="/">Tableau de bord admin ↗</a></header>
+    <main class="page">
+      <section class="hero"><p class="eyebrow">RÉSERVATION DE VOLS</p><h1>Le monde à portée de billet.</h1><p>Comparez les offres de vols disponibles auprès de notre partenaire de réservation.</p></section>
+      <form id="search-form" class="search-card">
+        <div class="trip-options"><span class="trip-chip">✈ Aller simple ou aller-retour</span><span id="provider-badge" class="provider-badge">Connexion au fournisseur…</span></div>
+        <div class="fields">
+          <label>Départ (code IATA)<input name="origin" placeholder="CDG" minlength="3" maxlength="3" value="CDG" required autocomplete="off" /></label>
+          <label>Destination (code IATA)<input name="destination" placeholder="DSS" minlength="3" maxlength="3" value="DSS" required autocomplete="off" /></label>
+          <label>Départ<input name="departureDate" type="date" required /></label>
+          <label>Retour <span class="optional">(facultatif)</span><input name="returnDate" type="date" /></label>
+          <label>Adultes<select name="adults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></label>
+          <label>Devise<select name="currencyCode"><option value="EUR">EUR — Euro</option><option value="USD">USD — Dollar US</option><option value="XOF">XOF — Franc CFA</option><option value="GBP">GBP — Livre sterling</option></select></label>
+        </div>
+        <label class="checkbox"><input name="nonStop" type="checkbox" /> Vols directs uniquement</label>
+        <button class="search-button" type="submit">⌕ <span>Rechercher des vols</span></button>
+      </form>
+      <section class="results-section"><div class="results-heading"><div><p class="eyebrow">OFFRES DISPONIBLES</p><h2 id="results-title">Trouvez votre prochain vol</h2></div><span id="result-count"></span></div><div id="message" class="message" hidden></div><div id="results" class="results"></div></section>
+      <p class="disclaimer">Les prix et disponibilités sont fournis par Amadeus et peuvent changer jusqu’à la confirmation. Cette version permet la recherche uniquement : la réservation, le paiement et la commission nécessitent une intégration commerciale supplémentaire.</p>
+    </main>
+    <script type="module" src="/flight-search.js"></script>
+  </body>
+</html>
