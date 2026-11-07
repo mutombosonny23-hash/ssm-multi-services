@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ef436a" />
+  <title>Connexion admin | SSM Multi Services</title>
+  <link rel="stylesheet" href="./admin-login.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="promo-panel">
+      <div class="brand-wrap">
+        <div class="brand-mark">SSM</div>
+        <div class="brand-copy">
+          <strong>SSM</strong>
+          <span>MULTI SERVICES</span>
+        </div>
+      </div>
+      <div class="promo-content">
+        <p class="eyebrow">PILOTAGE DE VENTES</p>
+        <h1>Gérez vos ventes, commissions et réservations en temps réel.</h1>
+        <ul>
+          <li>Suivi des billets vendus</li>
+          <li>Commission par partenaire</li>
+          <li>Tableau de bord opérationnel</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="login-panel">
+      <div class="login-card">
+        <div class="topbar-mini">
+          <div class="mini-badge">Admin</div>
+          <a href="./booking.html">Accueil</a>
+        </div>
+        <h2>Connexion administrateur</h2>
+        <p>Accédez à votre espace sécurisé SSM Multi Services.</p>
+
+        <form id="admin-login-form" class="login-form">
+          <label>
+            Adresse e-mail
+            <input type="email" name="email" value="admin@ssmmultiservices.com" required />
+          </label>
+          <label>
+            Mot de passe
+            <input type="password" name="password" value="admin123" required />
+          </label>
+          <div class="remember-row">
+            <label class="checkline"><input type="checkbox" checked /> Se souvenir de moi</label>
+            <a href="#">Mot de passe oublié ?</a>
+          </div>
+          <button type="submit" class="primary-btn">Se connecter</button>
+        </form>
+
+        <div class="demo-credentials">
+          <strong>Démo</strong>
+          <span>admin@ssmmultiservices.com / admin123</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="./admin-login.js"></script>
+</body>
+</html>

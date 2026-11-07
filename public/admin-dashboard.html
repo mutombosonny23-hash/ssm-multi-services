@@ -1,0 +1,14 @@
+document.getElementById('admin-login-form')?.addEventListener('submit', function (event) {
+  event.preventDefault();
+  const form = new FormData(this);
+  const email = String(form.get('email') || '').trim();
+  const password = String(form.get('password') || '');
+
+  if (email === 'admin@ssmmultiservices.com' && password === 'admin123') {
+    localStorage.setItem('ssmAdminSession', 'active');
+    window.location.href = './admin-dashboard.html';
+    return;
+  }
+
+  alert('Identifiants invalides. Utilisez la démo fournie sur la page.');
+});

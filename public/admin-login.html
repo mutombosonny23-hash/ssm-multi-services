@@ -1,0 +1,9 @@
+const isSessionActive = localStorage.getItem('ssmAdminSession');
+if (!isSessionActive) {
+  window.location.href = './admin-login.html';
+}
+
+document.getElementById('logout-btn')?.addEventListener('click', () => {
+  localStorage.removeItem('ssmAdminSession');
+  window.location.href = './admin-login.html';
+});

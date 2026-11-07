@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard admin | SSM Multi Services</title>
+  <link rel="stylesheet" href="./admin-dashboard.css" />
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <div class="brand-box">
+        <div class="brand-mark">SSM</div>
+        <div class="brand-copy"><strong>SSM</strong><span>MULTI SERVICES</span></div>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active">Tableau de bord</button>
+        <button class="nav-item">Réservations</button>
+        <button class="nav-item">Commandes</button>
+        <button class="nav-item">Commissions</button>
+        <button class="nav-item">Partenaires</button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="profile-pill">
+          <span>SM</span>
+          <div><strong>SSM Admin</strong><small>Superviseur</small></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Administration</p>
+          <h1>Dashboard général</h1>
+        </div>
+        <div class="actions">
+          <button class="ghost-btn">Exporter</button>
+          <button class="danger-btn" id="logout-btn">Déconnexion</button>
+        </div>
+      </header>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-head"><span>Chiffre d’affaires</span><i class="badge pink">€</i></div>
+          <h2>€ 48 260</h2>
+          <small class="up">+12.4% vs mois dernier</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-head"><span>Billets vendus</span><i class="badge yellow">✈</i></div>
+          <h2>1 248</h2>
+          <small class="up">+8.1% vs mois dernier</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-head"><span>Commissions</span><i class="badge green">%</i></div>
+          <h2>€ 2 415</h2>
+          <small class="up">+9.7% vs mois dernier</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-head"><span>En attente</span><i class="badge blue">⏳</i></div>
+          <h2>34</h2>
+          <small class="warn">6 nécessitent validation</small>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel large-panel">
+          <div class="panel-header">
+            <div><p class="eyebrow">PERFORMANCE</p><h3>Ventes par semaine</h3></div>
+            <span class="pill">7 derniers jours</span>
+          </div>
+          <div class="chart-bars">
+            <span style="height: 42%"><em>8.4k</em></span>
+            <span style="height: 58%"><em>10.8k</em></span>
+            <span style="height: 46%"><em>9.1k</em></span>
+            <span style="height: 69%"><em>13.7k</em></span>
+            <span style="height: 78%"><em>15.3k</em></span>
+            <span style="height: 66%"><em>12.9k</em></span>
+            <span style="height: 88%"><em>17.2k</em></span>
+          </div>
+          <div class="chart-labels"><b>L</b><b>M</b><b>M</b><b>J</b><b>V</b><b>S</b><b>D</b></div>
+        </div>
+
+        <div class="panel side-panel">
+          <div class="panel-header">
+            <div><p class="eyebrow">COMMISSION</p><h3>Répartition</h3></div>
+          </div>
+          <div class="commission-ring">
+            <div class="ring-inner"><strong>64%</strong><span>Objectif</span></div>
+          </div>
+          <div class="legend-row"><span class="dot rose"></span> Généré <strong>€ 2 415</strong></div>
+          <div class="legend-row"><span class="dot gray"></span> Objectif <strong>€ 3 750</strong></div>
+        </div>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="panel-header table-head">
+          <div><p class="eyebrow">ACTIVITÉ RÉCENTE</p><h3>Réservations récentes</h3></div>
+          <button class="ghost-btn">Voir tout</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Référence</th>
+              <th>Client</th>
+              <th>Trajet</th>
+              <th>Compagnie</th>
+              <th>Montant</th>
+              <th>Commission</th>
+              <th>Statut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#SSM-24711</td>
+              <td>Fatou Diop</td>
+              <td>Paris → Dakar</td>
+              <td>Air France</td>
+              <td>€ 680</td>
+              <td>€ 34</td>
+              <td><span class="tag success">Confirmé</span></td>
+            </tr>
+            <tr>
+              <td>#SSM-24708</td>
+              <td>Jean Koffi</td>
+              <td>Abidjan → Londres</td>
+              <td>Brussels</td>
+              <td>€ 920</td>
+              <td>€ 46</td>
+              <td><span class="tag warning">En attente</span></td>
+            </tr>
+            <tr>
+              <td>#SSM-24703</td>
+              <td>Aminata Sow</td>
+              <td>Casablanca → Dakar</td>
+              <td>Royal Air Maroc</td>
+              <td>€ 430</td>
+              <td>€ 21</td>
+              <td><span class="tag success">Confirmé</span></td>
+            </tr>
+            <tr>
+              <td>#SSM-24698</td>
+              <td>Ibrahima Ly</td>
+              <td>Paris → Accra</td>
+              <td>Air Côte d’Ivoire</td>
+              <td>€ 760</td>
+              <td>€ 38</td>
+              <td><span class="tag danger">Annulé</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="./admin-dashboard.js"></script>
+</body>
+</html>
